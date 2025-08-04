@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cardiovascular Risk Classifier</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body,
+      html {
+        height: 100%;
+        font-family: "Raleway", sans-serif;
+      }
+
+      .background-image {
+        background: url("/static/background.jpg") no-repeat center center fixed;
+        background-size: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+        filter: brightness(0.35) saturate(140%) blur(1.5px);
+        opacity: 0.95;
+      }
+
+      .overlay {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 100vh;
+        padding: 40px;
+        color: #ffffff;
+      }
+
+      h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        color: #feca57;
+        text-shadow: 3px 3px 8px #000;
+      }
+
+      h2 {
+        font-size: 2rem;
+        font-weight: 600;
+        color: #00d2d3;
+        margin-top: 10px;
+        text-shadow: 2px 2px 5px #000;
+      }
+
+      p {
+        max-width: 850px;
+        font-size: 1.1rem;
+        color: #f0f0f0;
+        margin: 25px auto 10px;
+        line-height: 1.7;
+        padding: 0 20px;
+        text-align: center;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+        backdrop-filter: brightness(1.1);
+      }
+
+      .cta-button {
+        margin-top: 35px;
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 30px;
+        background: linear-gradient(135deg, #00b894, #00cec9);
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 206, 201, 0.4);
+      }
+
+      .cta-button:hover {
+        transform: scale(1.05);
+        background: linear-gradient(135deg, #0984e3, #6c5ce7);
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2.5rem;
+        }
+        h2 {
+          font-size: 1.5rem;
+        }
+        p {
+          font-size: 1rem;
+          padding: 0 10px;
+        }
+        .cta-button {
+          padding: 12px 25px;
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background-image"></div>
+
+    <div class="overlay">
+      <h1>Cardiovascular Risk Classifier</h1>
+      <h2>Predict CHD Risk Using Machine Learning</h2>
+      <p>
+        This intelligent system leverages patient health indicators to estimate
+        the likelihood of developing Coronary Heart Disease (CHD) using advanced
+        ML algorithms like Logistic Regression, Random Forest, and XGBoost.
+        <br /><br />
+        A prediction of 0 means <em>low or no risk</em> of CHD,
+        while a prediction of 1 indicates a
+        <em>high risk</em> of developing CHD.
+      </p>
+      <a class="cta-button" href="/form">Take the CHD Risk Test</a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CHD Risk Test</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(120deg, #8e44ad, #3498db);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form-wrapper {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(6px);
+      padding: 40px;
+      border-radius: 16px;
+      max-width: 600px;
+      width: 90%;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 25px;
+      color: #ffeaa7;
+    }
+
+    form input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: none;
+      font-size: 16px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #333;
+    }
+
+    input[type="text"]:focus {
+      outline: 2px solid #74b9ff;
+    }
+
+    .predict-btn {
+      width: 100%;
+      background: #00cec9;
+      color: white;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      margin-top: 18px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .predict-btn:hover {
+      background: #0984e3;
+    }
+
+    /* Modal styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .modal-box {
+      background: #ffeaa7;
+      color: #2d3436;
+      padding: 30px 40px;
+      border-radius: 12px;
+      font-size: 20px;
+      font-weight: bold;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      min-width: 300px;
+      max-width: 90%;
+    }
+
+    .close-btn {
+      margin-top: 20px;
+      background: #d63031;
+      color: white;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .close-btn:hover {
+      background: #c0392b;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-wrapper">
+    <h1>CHD Risk Prediction Form</h1>
+    <form method="POST" action="/predict">
+      <input type="text" name="age" placeholder="Age" required />
+      <input type="text" name="education" placeholder="Education Level (1-4)" required />
+      <input type="text" name="sex" placeholder="Sex (1 = Male, 0 = Female)" required />
+      <input type="text" name="is_smoking" placeholder="Smoking? (1 = Yes, 0 = No)" required />
+      <input type="text" name="cigsPerDay" placeholder="Cigarettes per Day" required />
+      <input type="text" name="BPMeds" placeholder="On BP Meds? (1/0)" required />
+      <input type="text" name="prevalentStroke" placeholder="Stroke History? (1/0)" required />
+      <input type="text" name="prevalentHyp" placeholder="Hypertension? (1/0)" required />
+      <input type="text" name="diabetes" placeholder="Diabetes? (1/0)" required />
+      <input type="text" name="totChol" placeholder="Total Cholesterol" required />
+      <input type="text" name="sysBP" placeholder="Systolic BP" required />
+      <input type="text" name="diaBP" placeholder="Diastolic BP" required />
+      <input type="text" name="BMI" placeholder="BMI" required />
+      <input type="text" name="heartRate" placeholder="Heart Rate" required />
+      <input type="text" name="glucose" placeholder="Glucose Level" required />
+      <button class="predict-btn" type="submit">Predict CHD Risk</button>
+    </form>
+  </div>
+
+  {% if prediction %}
+  <div class="modal-overlay">
+    <div class="modal-box">
+      Prediction Result: {{ prediction }}
+      <br />
+      <button class="close-btn" onclick="window.location.href='/form'">Close</button>
+    </div>
+  </div>
+  {% endif %}
+</body>
+</html>
+
+
+
